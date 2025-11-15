@@ -1,3 +1,8 @@
+"""
+Main.py acts as the UI, to test the algorithm. The real experiments were done in run_experiments.py.
+"""
+
+
 from src import utils
 from simulated_annealing import *
 
@@ -8,10 +13,10 @@ CNF_FILES = {
 }
 
 ## Parameters for simulated annealing
-max_evaluations = 1000
+max_evaluations = 10E7
 min_T = 10E-04
 max_T = 1
-alfa = 0.995
+alfa = 0.9999930923
 bits_to_perturbate = 1
 energy_threshold = 0
 
@@ -35,7 +40,7 @@ def main():
     x = int(input("Enter choice: (1): "))
     if x == 1:
         energy, state = simulated_annealing(clauses, num_vars, max_evaluations, min_T, max_T, alfa, bits_to_perturbate, energy_threshold )
-        print(f"\nEnergy: {energy}")
+        print(f"\nBest Energy Found: {energy}")
 
 if __name__ == "__main__":
     main()

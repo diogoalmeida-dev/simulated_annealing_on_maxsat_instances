@@ -10,7 +10,7 @@ def simulated_annealing(clauses, num_vars, max_evaluations, min_temperature, max
     :param max_evaluations: Max objective function evaluations (evaluate_energy) (int value)
     :param min_temperature: Minimum temperature threshold (int value)
     :param max_temperature: The starting temperature (+ temperature + exploring) (int value)
-    :param alfa: Temperature coefficient (float value)
+    :param alfa: Cooling factor, how much temperature cools after each state (float value)
     :param bits_to_perturbate: the number of bits to perturb (int value)
     :param energy_threshold: Energy threshold, 0 being a global optima (int value)
     :return: Returns the best energy value found (int value), 0 being a global optima
@@ -46,6 +46,8 @@ def simulated_annealing(clauses, num_vars, max_evaluations, min_temperature, max
 
         temperature *= alfa ## lower temperature multiplying it by alfa value and increment evaluations
         evaluations += 1
+
+    print(evaluations, best_energy, temperature)
 
     return best_energy, best_state
 
