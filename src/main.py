@@ -7,11 +7,13 @@ CNF_FILES = {
     "3": "../cnf_files/uf250-01.cnf"
 }
 
-iterations = 100000
-
-## for SA
-init_temperature = 1
+## Parameters for simulated annealing
+max_evaluations = 1000
+min_T = 10E-04
+max_T = 1
+alfa = 0.995
 bits_to_perturbate = 1
+energy_threshold = 0
 
 def main():
     print("Select CNF file:")
@@ -32,7 +34,7 @@ def main():
     print("1 - SA")
     x = int(input("Enter choice: (1): "))
     if x == 1:
-        energy, state = simulated_annealing(clauses, num_clauses, num_vars, iterations, init_temperature, bits_to_perturbate, 0.99)
+        energy, state = simulated_annealing(clauses, num_vars, max_evaluations, min_T, max_T, alfa, bits_to_perturbate, energy_threshold )
         print(f"\nEnergy: {energy}")
 
 if __name__ == "__main__":
