@@ -41,7 +41,7 @@ def main():
 
             print(f"File {instance_id}, run {run}, seed {seed}")
 
-            best_energy, best_state = simulated_annealing(
+            best_energy, best_state, evaluations = simulated_annealing(
                 clauses=clauses,
                 num_vars=num_vars,
                 max_evaluations=MAX_EVALUATIONS,
@@ -65,6 +65,7 @@ def main():
                     "num_clauses": num_clauses,
                     "best_energy_unsatisfied": best_energy,
                     "best_fitness_satisfied": best_fitness,
+                    "evaluations_used": evaluations,
                 }
             )
 

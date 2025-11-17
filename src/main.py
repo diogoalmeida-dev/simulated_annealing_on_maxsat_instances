@@ -13,7 +13,7 @@ CNF_FILES = {
 }
 
 ## Parameters for simulated annealing
-max_evaluations = 10E7
+max_evaluations = 1_000_000
 min_T = 10E-04
 max_T = 1
 alfa = 0.9999930923
@@ -39,8 +39,9 @@ def main():
     print("1 - SA")
     x = int(input("Enter choice: (1): "))
     if x == 1:
-        energy, state = simulated_annealing(clauses, num_vars, max_evaluations, min_T, max_T, alfa, bits_to_perturbate, energy_threshold )
+        energy, state, evaluations = simulated_annealing(clauses, num_vars, max_evaluations, min_T, max_T, alfa, bits_to_perturbate, energy_threshold )
         print(f"\nBest Energy Found: {energy}")
+        print(evaluations)
 
 if __name__ == "__main__":
     main()

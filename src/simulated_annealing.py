@@ -47,9 +47,7 @@ def simulated_annealing(clauses, num_vars, max_evaluations, min_temperature, max
         temperature *= alfa ## lower temperature multiplying it by alfa value and increment evaluations
         evaluations += 1
 
-    print(evaluations, best_energy, temperature)
-
-    return best_energy, best_state
+    return best_energy, best_state, evaluations
 
 def perturbate(state, bits_to_perturbate):
     """
