@@ -1,6 +1,7 @@
 import numpy as np
 
-from src.utils import evaluate_energy
+from simulated_annealing_on_maxsat_instances.src.utils import evaluate_energy
+
 
 def simulated_annealing(clauses, num_vars, max_evaluations, min_temperature, max_temperature, alfa, bits_to_perturbate, energy_threshold):
     """
@@ -40,8 +41,8 @@ def simulated_annealing(clauses, num_vars, max_evaluations, min_temperature, max
                 energy = new_energy                                 ## if we should accept it based on random probabilities
                 state = new_state
 
-        if new_energy < best_energy:    ## update global best
-            best_energy = new_energy
+        if new_energy < best_energy:    ## update global best (can't update global best on the first if because of an edge case
+            best_energy = new_energy    ## where if we
             best_state = new_state.copy()
 
         temperature *= alfa ## lower temperature multiplying it by alfa value and increment evaluations
